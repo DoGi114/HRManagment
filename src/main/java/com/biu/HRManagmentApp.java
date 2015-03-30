@@ -29,7 +29,7 @@ import com.vaadin.ui.VerticalLayout;
 /**
  *
  */
-@Theme("mytheme")
+@Theme("tests-valo-metro")
 @Title("HR managment app")
 public class HRManagmentApp extends UI {
 
@@ -140,25 +140,25 @@ public class HRManagmentApp extends UI {
 			formLayout.addComponent(field);
             field.setWidth("100%");
             if(fields == "Name"){
-            	field.setRequired(true);
+            	//field.setRequired(true);
             	field.setInputPrompt("Please insert name");
 
             }
             if(fields == "Surname"){
-            	field.setRequired(true);
+            	//field.setRequired(true);
             	field.setInputPrompt("Please insert surname");
 
             }
             if(fields == "Department"){
-            	field.setRequired(true);
+            	//field.setRequired(true);
             	field.setInputPrompt("Please insert department");
 
             }
             if(fields == "Pension"){
             	
-            	field.setRequired(true);
-            	field.setInvalidAllowed(false);
-            	field.setInputPrompt("Please insert number");
+            	//field.setRequired(true);
+            	//field.setInvalidAllowed(false);
+            	field.setInputPrompt("Please insert number pension in number");
             	//field.addValidator(new intValidator());
             	//field.addValidator(new String);
             }
@@ -177,15 +177,6 @@ public class HRManagmentApp extends UI {
 		 search.setInputPrompt("Search contacts");
 
 		 search.setTextChangeEventMode(TextChangeEventMode.LAZY);
-
-		 search.addTextChangeListener(new TextChangeListener() {
-                 public void textChange(final TextChangeEvent event) {
-
-                         contactContainer.removeAllContainerFilters();
-                         contactContainer.addContainerFilter(new ContactFilter(event
-                                         .getText()));
-                 }
-         });
 	
 	}
 	
@@ -248,6 +239,15 @@ public class HRManagmentApp extends UI {
 			
 		}
 		);
+		
+		search.addTextChangeListener(new TextChangeListener() {
+            public void textChange(final TextChangeEvent event) {
+
+                    contactContainer.removeAllContainerFilters();
+                    contactContainer.addContainerFilter(new ContactFilter(event
+                                    .getText()));
+             }
+     });
 	}
 
 	private void initValidators(){
